@@ -1,4 +1,6 @@
-﻿using System.Drawing;
+﻿using System;
+using System.Collections.Generic;
+using System.Drawing;
 
 namespace HomeWork.Lesson1.Task1
 {
@@ -17,7 +19,10 @@ namespace HomeWork.Lesson1.Task1
 
         public virtual void Draw()
         {
-            GameCore.Buffer.Graphics.DrawEllipse(Pens.White, Position.X, Position.Y, Size.Width, Size.Height);
+            using (Image image = new Bitmap(@"img/asteroid_1.png"))
+            {
+                GameCore.Buffer.Graphics.DrawImage(image, Position.X, Position.Y);
+            }
         }
 
         public virtual void Update()
@@ -26,9 +31,9 @@ namespace HomeWork.Lesson1.Task1
             Position.Y = Position.Y + Direction.Y;
 
             if (Position.X < 0) Direction.X = -Direction.X;
-            if (Position.X > GameCore.Width) Direction.X = -Direction.X;
+            if (Position.X > GameCore.Width-70) Direction.X = -Direction.X;
             if (Position.Y < 0) Direction.Y = -Direction.Y;
-            if (Position.Y > GameCore.Height) Direction.Y = -Direction.Y;
+            if (Position.Y > GameCore.Height-70) Direction.Y = -Direction.Y;
         }
     }
 }

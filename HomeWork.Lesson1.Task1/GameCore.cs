@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Drawing;
+using System.Drawing.Imaging;
 using System.Windows.Forms;
 
 namespace HomeWork.Lesson1.Task1
@@ -43,43 +45,36 @@ namespace HomeWork.Lesson1.Task1
 
         public static void Draw()
         {
-            Buffer.Graphics.Clear(Color.Black);
+            using (Image image = new Bitmap(@"img/theEarth.png"))
+            {
+                Buffer.Graphics.Clear(Color.Black);
+                Buffer.Graphics.DrawImage(image, (Width - 200) / 2, (Height - 200) / 2);
 
-            Buffer.Graphics.FillEllipse(Brushes.Red, new Rectangle(100, 100, 200, 200));
+                Array.ForEach(_asteroids, asteroid => asteroid.Draw());
+                Array.ForEach(_stars, star => star.Draw());
 
-            foreach (var asteroid in _asteroids)
-                asteroid.Draw();
-
-            foreach (var star in _stars)
-                star.Draw(); // override Draw
-
-            Buffer.Render();
+                Buffer.Render();
+            }
         }
 
         public static void Update()
         {
-            foreach (var asteroid in _asteroids)
-                asteroid.Update();
-
-            foreach (var star in _stars)
-                star.Update(); // override Update
+            Array.ForEach(_asteroids, asteroid => asteroid.Update());
+            Array.ForEach(_stars, star => star.Update());
         }
 
         public static void Load()
         {
             var random = new Random();
-            _asteroids = new Asteroid[15];
+
+            _asteroids = new Asteroid[10];
+            _stars = new Asteroid[10];
+
             for (var i = 0; i < _asteroids.Length; i++)
-            {
-                var size = random.Next(5, 40);
-                _asteroids[i] = new Asteroid(new Point(500, i * 20), new Point(-i+10, -i+10), new Size(size, size));
-            }
-            _stars = new Asteroid[20];
+                _asteroids[i] = new Asteroid(new Point(100, i * i), new Point(-i + 10, -i + 5), new Size(100, 100));
+
             for (var i = 0; i < _stars.Length; i++)
-            {
-                var size = random.Next(3, 5);
-                _stars[i] = new Star(new Point(600, i * 40), new Point(-i, -i), new Size(size, size));
-            }
+                _stars[i] = new Star(new Point(500, i * i), new Point(-i-4, -i-1), new Size(50, 50));
 
         }
 
