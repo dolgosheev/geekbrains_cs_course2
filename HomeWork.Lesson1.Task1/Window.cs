@@ -12,5 +12,15 @@ namespace HomeWork.Lesson1.Task1
         {
             InitializeComponent();
         }
+
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show(@"Copyright by Alexander Dolgosheev 2021", @"About");
+        }
     }
 }
