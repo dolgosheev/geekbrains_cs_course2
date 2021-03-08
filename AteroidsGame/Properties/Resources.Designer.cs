@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace HomeWork.Lesson1.Task1.Properties {
+namespace AteroidsGame.Properties {
     using System;
     
     
@@ -39,7 +39,7 @@ namespace HomeWork.Lesson1.Task1.Properties {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("HomeWork.Lesson1.Task1.Properties.Resources", typeof(Resources).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("AteroidsGame.Properties.Resources", typeof(Resources).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -61,11 +61,80 @@ namespace HomeWork.Lesson1.Task1.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap asteroid_1 {
+            get {
+                object obj = ResourceManager.GetObject("asteroid_1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap asteroid_2 {
+            get {
+                object obj = ResourceManager.GetObject("asteroid_2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap asteroid_3 {
+            get {
+                object obj = ResourceManager.GetObject("asteroid_3", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap laserRed011 {
+            get {
+                object obj = ResourceManager.GetObject("laserRed011", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap star {
+            get {
+                object obj = ResourceManager.GetObject("star", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap theEarth {
+            get {
+                object obj = ResourceManager.GetObject("theEarth", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Copyright by Alexander Dolgosheev 2021.
         /// </summary>
         internal static string Window_aboutToolStripMenuItem_Click_Copyright_by_Alexander_Dolgosheev_2021 {
             get {
                 return ResourceManager.GetString("Window_aboutToolStripMenuItem_Click_Copyright_by_Alexander_Dolgosheev_2021", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Asteroids.
+        /// </summary>
+        internal static string Window_Window_Asteroids {
+            get {
+                return ResourceManager.GetString("Window_Window_Asteroids", resourceCulture);
             }
         }
     }

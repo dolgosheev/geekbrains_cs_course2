@@ -1,7 +1,7 @@
 ﻿
 using System.Windows.Forms;
 
-namespace HomeWork.Lesson1.Task1
+namespace AteroidsGame
 {
     partial class Window
     {
