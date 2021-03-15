@@ -6,8 +6,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{149164F9-5EFB-40EC-8307-C85C74185819}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>HomeWork.Lesson1.Task1</RootNamespace>
-    <AssemblyName>HomeWork.Lesson1.Task1</AssemblyName>
+    <RootNamespace>AteroidsGame</RootNamespace>
+    <AssemblyName>AteroidsGame</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -46,9 +46,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Asteroid.cs" />
+    <Compile Include="Model\Objects\Asteroid.cs" />
+    <Compile Include="Model\Objects\BaseObject.cs" />
+    <Compile Include="Model\Objects\Bullet.cs" />
     <Compile Include="GameCore.cs" />
-    <Compile Include="Star.cs" />
+    <Compile Include="Model\Interfaces\ICollision.cs" />
+    <Compile Include="Exceptions\InitializeException.cs" />
+    <Compile Include="Model\Objects\Star.cs" />
     <Compile Include="Window.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -83,23 +87,24 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
-    <Content Include="img\asteroid_1.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="img\asteroid_2.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="img\asteroid_3.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="img\star.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="img\theEarth.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
+    <None Include="Resources\asteroid_1.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\asteroid_2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\asteroid_3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\star.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\theEarth.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\laserRed011.png" />
+  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

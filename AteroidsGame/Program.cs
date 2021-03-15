@@ -1,12 +1,19 @@
-﻿using System;
+﻿/*
+ * Author : Alexander Dolgosheev
+ * Github : https://github.com/dolgosheev
+ * Mailto : alexanderdolgosheev@gmail.com
+ * Task 2
+ */
+
+using System;
 using System.Windows.Forms;
 
-namespace HomeWork.Lesson1.Task1
+namespace AteroidsGame
 {
-    static class Program
+    internal static class Program
     {
         [STAThread]
-        static void Main()
+        private static void Main()
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
