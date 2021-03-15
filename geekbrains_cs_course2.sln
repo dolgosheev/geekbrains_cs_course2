@@ -5,7 +5,9 @@ VisualStudioVersion = 16.0.30711.63
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AteroidsGame", "AteroidsGame\AteroidsGame.csproj", "{149164F9-5EFB-40EC-8307-C85C74185819}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HomeWork.Lesson2.Task1", "HomeWork.Lesson2.Task1\HomeWork.Lesson2.Task1.csproj", "{A60B2011-81AF-498E-AC19-8793890DE0BB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HomeWork.Lesson2.Task1", "HomeWork.Lesson2.Task1\HomeWork.Lesson2.Task1.csproj", "{A60B2011-81AF-498E-AC19-8793890DE0BB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HomeWork.Lesson3.Task1", "HomeWork.Lesson3.Task1\HomeWork.Lesson3.Task1.csproj", "{EB46CD02-AEC9-47A5-8DAC-DE5CB8484FE9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{A60B2011-81AF-498E-AC19-8793890DE0BB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A60B2011-81AF-498E-AC19-8793890DE0BB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A60B2011-81AF-498E-AC19-8793890DE0BB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EB46CD02-AEC9-47A5-8DAC-DE5CB8484FE9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EB46CD02-AEC9-47A5-8DAC-DE5CB8484FE9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EB46CD02-AEC9-47A5-8DAC-DE5CB8484FE9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EB46CD02-AEC9-47A5-8DAC-DE5CB8484FE9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
