@@ -15,7 +15,7 @@ namespace AteroidsGame.Model.Objects
 
         public override void Update()
         {
-            Position.X = Position.X + 3;
+            Position.X = Position.X + 15;
         }
     }
 }

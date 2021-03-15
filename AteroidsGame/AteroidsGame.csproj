@@ -52,6 +52,7 @@
     <Compile Include="GameCore.cs" />
     <Compile Include="Model\Interfaces\ICollision.cs" />
     <Compile Include="Exceptions\InitializeException.cs" />
+    <Compile Include="Model\Objects\Ship.cs" />
     <Compile Include="Model\Objects\Star.cs" />
     <Compile Include="Window.cs">
       <SubType>Form</SubType>
@@ -105,6 +106,8 @@
   <ItemGroup>
     <None Include="Resources\laserRed011.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\ship.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
