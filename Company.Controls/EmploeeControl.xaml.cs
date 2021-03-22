@@ -1,8 +1,8 @@
-﻿using System;
-using Company.Database;
+﻿using Company.Database;
 using System.Globalization;
 using System.Linq;
 using System.Windows.Forms;
+using Help = Company.Database.Help;
 
 namespace Company.Controls
 {
@@ -55,8 +55,8 @@ namespace Company.Controls
                 int.TryParse(ctrlExp.Text, out var exp)
                     ? exp
                     : default(int);
-            _emploee.SecretInfoAccess = (bool)ctrlSecretAccess.IsChecked;
-            _emploee.Department = Help.Departments.Where(r => r.Title == ctrlDepartmentt.SelectedItem).SingleOrDefault();
+            if (ctrlSecretAccess.IsChecked != null) _emploee.SecretInfoAccess = (bool) ctrlSecretAccess.IsChecked;
+            _emploee.Department = Help.Departments.Where(r => r.Title == (string) ctrlDepartmentt.SelectedItem).SingleOrDefault();
         }
 
         public Employee AddeEmploee()
@@ -69,24 +69,25 @@ namespace Company.Controls
 
             UpdateCombo();
 
-            _emploee = new Employee();
-
-            _emploee.Firstname = ctrlFirstName.Text;
-            _emploee.LastName = ctrlLastName.Text;
-            _emploee.Age =
+            _emploee = new Employee
+            {
+                Firstname = ctrlFirstName.Text,
+                LastName = ctrlLastName.Text,
+                Age =
                 int.TryParse(ctrlAge.Text, out var age)
                     ? age
-                    : default(int);
-            _emploee.Salary =
+                    : default(int),
+                Salary =
                 double.TryParse(ctrlSalary.Text, out var sal)
                     ? sal
-                    : default(double);
-            _emploee.Experience =
+                    : default(double),
+                Experience =
                 int.TryParse(ctrlExp.Text, out var exp)
                     ? exp
-                    : default(int);
-            _emploee.SecretInfoAccess = (bool)ctrlSecretAccess.IsChecked;
-            _emploee.Department = Help.Departments.Where(r => r.Title == ctrlDepartmentt.SelectedItem).SingleOrDefault();
+                    : default(int),
+                SecretInfoAccess = ctrlSecretAccess.IsChecked != null && (bool)ctrlSecretAccess.IsChecked,
+                Department = Help.Departments.Where(r => r.Title == (string) ctrlDepartmentt.SelectedItem).SingleOrDefault()
+            };
 
             return _emploee;
         }

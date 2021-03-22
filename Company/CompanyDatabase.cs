@@ -1,5 +1,5 @@
-﻿using System;
-using Company.Database;
+﻿using Company.Database;
+using System;
 using System.Collections.Generic;
 
 namespace Company
@@ -8,7 +8,7 @@ namespace Company
     {
 
 
-        private static Random rand = new Random();
+        private static readonly Random Rand = new Random();
 
         public List<Employee> Employees;
 
@@ -21,16 +21,16 @@ namespace Company
         {
             var returnList = new List<Employee>();
 
-            for (int i = 0; i < count; i++)
+            for (var i = 0; i < count; i++)
             {
 
                 var emploee = new Employee(
-                    Help.FirstNames[rand.Next(0, Help.FirstNames.Count)], 
-                    Help.LastNames[rand.Next(0, Help.LastNames.Count)],
-                    rand.Next(40,65),
-                    rand.Next(1,10),
-                    rand.NextDouble()*1000,
-                    Help.Departments[rand.Next(0,3)]);
+                    Help.FirstNames[Rand.Next(0, Help.FirstNames.Count)], 
+                    Help.LastNames[Rand.Next(0, Help.LastNames.Count)],
+                    Rand.Next(40,65),
+                    Rand.Next(1,10),
+                    Rand.NextDouble()*1000,
+                    Help.Departments[Rand.Next(0,3)]);
 
                 returnList.Add(emploee);
             }

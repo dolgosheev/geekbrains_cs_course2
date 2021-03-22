@@ -1,7 +1,6 @@
-﻿using System.Linq;
-using Company.Database;
+﻿using Company.Database;
+using System.Linq;
 using System.Windows;
-using System.Windows.Controls;
 
 namespace Company
 {
@@ -39,7 +38,7 @@ namespace Company
             }
         }
 
-        private void btnEditEmpl_Click(object sender, System.Windows.RoutedEventArgs e)
+        private void btnEditEmpl_Click(object sender, RoutedEventArgs e)
         {
             if (CompanyListView.SelectedItems.Count < 1)
                 return;

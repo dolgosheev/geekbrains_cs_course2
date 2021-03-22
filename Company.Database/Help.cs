@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
-using Company.Database;
 
-namespace Company
+namespace Company.Database
 {
     public static class Help
     {

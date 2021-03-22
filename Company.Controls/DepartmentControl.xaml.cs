@@ -1,11 +1,11 @@
 ﻿using Company.Database;
 using System.Linq;
 using System.Windows.Forms;
-using UserControl = System.Windows.Controls.UserControl;
+using Help = Company.Database.Help;
 
 namespace Company.Controls
 {
-    public partial class DepartmentControl : UserControl
+    public partial class DepartmentControl
     {
         private Department _department;
         public DepartmentControl()
@@ -42,10 +42,11 @@ namespace Company.Controls
                 return null;
             }
 
-            _department = new Department();
-
-            _department.Title = DptTitle.Text;
-            _department.Description = DptDesc.Text;
+            _department = new Department
+            {
+                Title = DptTitle.Text,
+                Description = DptDesc.Text
+            };
 
             Help.Departments.Add(_department);
 

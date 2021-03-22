@@ -11,11 +11,11 @@
         public double Salary { get; set; } = default(double);
         public Department Department { get; set; }
 
-        public bool SecretInfoAccess { get; set; } = false;
+        public bool SecretInfoAccess { get; set; }
 
         public string AbsoluteName => $"{Firstname} {LastName}";
 
-        public Employee(string firstname, string lastName, int age, int experience, double salary, Department department,bool SecretInfoAccess = false)
+        public Employee(string firstname, string lastName, int age, int experience, double salary, Department department,bool secretInfoAccess = false)
         {
             Firstname = firstname;
             LastName = lastName;
@@ -23,6 +23,7 @@
             Experience = experience;
             Salary = salary;
             Department = department;
+            SecretInfoAccess = secretInfoAccess;
         }
 
         public Employee()
