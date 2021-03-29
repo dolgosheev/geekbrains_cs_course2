@@ -1,0 +1,33 @@
+﻿<UserControl x:Class="Office.ControlForms.ControlEmployee"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Office.ControlForms" d:DataContext="{d:DesignInstance Type=local:ControlEmployee}"
+             mc:Ignorable="d" 
+             d:DesignHeight="200" d:DesignWidth="300">
+    <Grid Height="200" VerticalAlignment="Top" HorizontalAlignment="Right" Width="300">
+        <Label Content="Identify" Margin="10,10,198,164" />
+        <TextBox 
+            x:Name="TextBoxIdentify" 
+            Text="{Binding Employee.Identify}"
+            Margin="107,10,10,166" TextWrapping="Wrap"/>
+        <Label Content="Firstname" Margin="10,39,198,135" />
+        <TextBox 
+            x:Name="TextBoxFirstname" 
+            Text="{Binding Employee.Firstname}"
+            Margin="107,39,10,137" TextWrapping="Wrap"/>
+        <Label Content="Lastname" Margin="10,68,198,106" />
+        <TextBox 
+            x:Name="TextBoxLastname" 
+            Text="{Binding Employee.Lastname}"
+            Margin="107,68,10,108" TextWrapping="Wrap"/>
+        <Label Content="Department" Margin="10,97,198,77" />
+        <ComboBox 
+            x:Name="ComboBoxDepartment" 
+            ItemsSource="{Binding Departments}"
+            SelectedItem="{Binding Employee.Department}"
+            DisplayMemberPath="Title"
+            Margin="107,97,10,81"/>
+    </Grid>
+</UserControl>

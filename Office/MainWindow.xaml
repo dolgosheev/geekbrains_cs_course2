@@ -1,0 +1,57 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:controlForms="clr-namespace:Office.ControlForms;assembly=Office.ControlForms" x:Class="Office.MainWindow"
+        mc:Ignorable="d"
+        Title="Office" Height="450" Width="800" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="239*"/>
+            <ColumnDefinition Width="555*"/>
+        </Grid.ColumnDefinitions>
+
+        <ListView 
+            x:Name="ListViewOffice"
+            ItemsSource="{Binding Employees}"
+            SelectedItem="{Binding SelectedEmployee}"
+            Margin="10,40,333,180" 
+            SelectionChanged="ListViewOffice_SelectionChanged" Grid.ColumnSpan="2">
+
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Width="100" Header="#" DisplayMemberBinding="{Binding Identify}"/>
+                    <GridViewColumn Width="100" Header="Firstname" DisplayMemberBinding="{Binding Firstname}"/>
+                    <GridViewColumn Width="100" Header="Lastname" DisplayMemberBinding="{Binding Lastname}"/>
+                    <GridViewColumn Width="110" Header="Department" DisplayMemberBinding="{Binding Department.Title}"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+
+        <controlForms:ControlEmployee x:Name="FormEmployee" Margin="227,41,10,229" Grid.Column="1"/>
+        <Button Content="Apply changes" Margin="0,203,209,0" Click="Employee_Apply" Height="20" VerticalAlignment="Top" HorizontalAlignment="Right" Width="94" Grid.Column="1"/>
+        <Button Content="Add new" Margin="0,203,109,0" Height="20" VerticalAlignment="Top" HorizontalAlignment="Right" Width="94" Click="Employee_New" Grid.Column="1"/>
+        <Button Content="Delete" Margin="0,203,10,0" Height="20" VerticalAlignment="Top" HorizontalAlignment="Right" Width="94" Click="Employee_Delete" Grid.Column="1"/>
+        <ListView 
+            x:Name="ListViewDepartments"
+            ItemsSource="{Binding Departments}"
+            SelectedItem="{Binding SelectedDepartment}"
+            Margin="10,277,333,10" Grid.ColumnSpan="2" Grid.Column="0" 
+            SelectionChanged="ListViewDepartments_SelectionChanged">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Width="100" Header="Title" DisplayMemberBinding="{Binding Title}"/>
+                    <GridViewColumn Width="200" Header="Description" DisplayMemberBinding="{Binding Description}"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <Label Grid.Column="0" Content="Employees" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
+        <Label Grid.Column="0" Content="Departments" HorizontalAlignment="Left" Margin="10,246,0,0" VerticalAlignment="Top"/>
+        <controlForms:ControlDepartment x:Name="FormDepartment" Grid.Column="1" Height="78" Margin="227,0,10,66" VerticalAlignment="Bottom"/>
+        <Button Content="Apply changes" Margin="0,0,209,10" HorizontalAlignment="Right" Width="94" Grid.Column="1" Height="20" VerticalAlignment="Bottom" Click="Department_Apply"/>
+        <Button Content="Add new" Margin="352,0,109,10" Grid.Column="1" Height="20" VerticalAlignment="Bottom" Click="Department_New"/>
+        <Button Content="Delete" Margin="0,0,10,10" HorizontalAlignment="Right" Width="94"  Grid.Column="1" Height="20" VerticalAlignment="Bottom" Click="Department_Delete"/>
+
+    </Grid>
+</Window>
