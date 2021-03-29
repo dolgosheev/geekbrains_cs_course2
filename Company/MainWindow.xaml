@@ -1,0 +1,37 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:Controls="clr-namespace:Company.Controls;assembly=Company.Controls" x:Class="Company.MainWindow"
+        mc:Ignorable="d"
+        Title="Goverment database" Height="469.318" Width="769">
+    <Grid Margin="0,0,4,0">
+        <ListView x:Name="CompanyListView" SelectionMode="Single" Margin="10,10,386,137" SelectionChanged="CompanyListView_SelectionChanged">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Width="200" Header="Officer" DisplayMemberBinding="{Binding AbsoluteName}" />
+                    <GridViewColumn Width="80" Header="Access" DisplayMemberBinding="{Binding SecretInfoAccess}" />
+                    <GridViewColumn Width="Auto" Header="Department" DisplayMemberBinding="{Binding Department.Title}" />
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <ListView x:Name="DepartmentsListView" SelectionMode="Single" Margin="10,318,386,10" SelectionChanged="DepartmentsListView_SelectionChanged">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Width="100" Header="Department Title" DisplayMemberBinding="{Binding Title}" />
+                    <GridViewColumn Width="Auto" Header="Department Description" DisplayMemberBinding="{Binding Description}" />
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <Controls:DepartmentControl x:Name="DepartmentControl" Height="Auto" Margin="394,302,21,30" Width="Auto"/>
+        <Button x:Name="btnAddDpt" Content="Add department" Margin="0,0,257,10" Height="20" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="113" Click="btnAddDpt_Click"/>
+        <Button x:Name="btnEditDpt" Content="Edit department" Margin="0,0,139,10" Height="20" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="113" Click="btnEditDpt_Click"/>
+        <Button x:Name="btnDelDpt" Content="Delete department" Margin="0,0,21,10" Height="20" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="113" Click="btnDelDpt_Click"/>
+        <Controls:EmploeeControl x:Name="EmploeeControl" Height="Auto" Margin="0,47,10,138" Width="360" HorizontalAlignment="Right"/>
+        <Button x:Name="btnAddEmpl" Content="Add emploee" Margin="0,11,257,0" HorizontalAlignment="Right" Width="113" Height="20" VerticalAlignment="Top" Click="btnAddEmpl_Click"/>
+        <Button x:Name="btnEditEmpl" Content="Edit emploee" Margin="0,11,139,0" HorizontalAlignment="Right" Width="113" Height="20" VerticalAlignment="Top" Click="btnEditEmpl_Click"/>
+        <Button x:Name="btnDelEmpl" Content="Delete emploee" Margin="0,11,21,0" HorizontalAlignment="Right" Width="113" Height="20" VerticalAlignment="Top" Click="btnDelEmpl_Click"/>
+
+    </Grid>
+</Window>
