@@ -98,3 +98,58 @@
 *Добавить в пример Lesson3 обобщенный делегат.
 </p>
 </details>
+
+<details>
+<summary>Lesson 4</summary>
+<h3>Task 1</h3>
+<p>
+Добавить в программу коллекцию астероидов. Как только она заканчивается (все астероиды сбиты), формируется новая коллекция, в которой на 1 астероид больше.
+</p>
+
+<h3>Task 2</h3>
+<p>
+Дана коллекция List<T>, требуется подсчитать, сколько раз каждый элемент встречается в данной коллекции:
+<ul>
+<li>
+для целых чисел;
+</li>
+
+<li>
+*для необобщенных коллекции;
+</li>
+
+<li>
+*используя Linq.
+</li>
+</ul>
+
+</p>
+
+<h3>Task 3</h3>
+<p>
+*Дан фрагмент программы:
+</p>
+
+```csharp
+Dictionary<string, int> dict = new Dictionary<string, int>()
+  {
+    {"four",4 },
+    {"two",2 },
+    { "one",1 },
+    {"three",3 },
+  };
+
+var d = dict.OrderBy(delegate(KeyValuePair<string,int> pair) { return pair.Value; });
+
+foreach (var pair in d)
+{
+    Console.WriteLine("{0} - {1}", pair.Key, pair.Value);
+}
+```
+
+<ul>
+<li>
+Свернуть обращение к OrderBy с использованием лямбда-выражения $.
+</li>
+</ul>
+</details>
