@@ -10,8 +10,8 @@
         <Label Content="Identify" Margin="10,10,198,164" />
         <TextBox 
             x:Name="TextBoxIdentify" 
-            Text="{Binding Employee.Identify}"
-            Margin="107,10,10,166" TextWrapping="Wrap"/>
+            Text="{Binding Employee.Id}"
+            Margin="107,10,10,166" TextWrapping="Wrap" IsEnabled="False"/>
         <Label Content="Firstname" Margin="10,39,198,135" />
         <TextBox 
             x:Name="TextBoxFirstname" 
@@ -23,11 +23,12 @@
             Text="{Binding Employee.Lastname}"
             Margin="107,68,10,108" TextWrapping="Wrap"/>
         <Label Content="Department" Margin="10,97,198,77" />
-        <ComboBox 
+        <ComboBox
             x:Name="ComboBoxDepartment" 
             ItemsSource="{Binding Departments}"
             SelectedItem="{Binding Employee.Department}"
             DisplayMemberPath="Title"
+            Text="{Binding Employee.Department.Title}"
             Margin="107,97,10,81"/>
     </Grid>
 </UserControl>

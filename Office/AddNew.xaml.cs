@@ -21,6 +21,13 @@ namespace Office
 
         private void Create(object sender, RoutedEventArgs e)
         {
+            if (string.IsNullOrWhiteSpace(FormEmployee.Employee.Firstname) ||
+                string.IsNullOrWhiteSpace(FormEmployee.Employee.Lastname) || FormEmployee.Employee.Department == null)
+            {
+                MessageBox.Show("Can't be empty", "error");
+                return;
+            }
+
             Employee = FormEmployee.Employee;
             DialogResult = true;
         }

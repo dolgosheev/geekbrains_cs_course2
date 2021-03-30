@@ -21,7 +21,7 @@
 
             <ListView.View>
                 <GridView>
-                    <GridViewColumn Width="100" Header="#" DisplayMemberBinding="{Binding Identify}"/>
+                    <GridViewColumn Width="100" Header="#" DisplayMemberBinding="{Binding Id}"/>
                     <GridViewColumn Width="100" Header="Firstname" DisplayMemberBinding="{Binding Firstname}"/>
                     <GridViewColumn Width="100" Header="Lastname" DisplayMemberBinding="{Binding Lastname}"/>
                     <GridViewColumn Width="110" Header="Department" DisplayMemberBinding="{Binding Department.Title}"/>
@@ -41,6 +41,7 @@
             SelectionChanged="ListViewDepartments_SelectionChanged">
             <ListView.View>
                 <GridView>
+                    <GridViewColumn Width="100" Header="#" DisplayMemberBinding="{Binding Id}"/>
                     <GridViewColumn Width="100" Header="Title" DisplayMemberBinding="{Binding Title}"/>
                     <GridViewColumn Width="200" Header="Description" DisplayMemberBinding="{Binding Description}"/>
                 </GridView>
@@ -48,7 +49,7 @@
         </ListView>
         <Label Grid.Column="0" Content="Employees" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
         <Label Grid.Column="0" Content="Departments" HorizontalAlignment="Left" Margin="10,246,0,0" VerticalAlignment="Top"/>
-        <controlForms:ControlDepartment x:Name="FormDepartment" Grid.Column="1" Height="78" Margin="227,0,10,66" VerticalAlignment="Bottom"/>
+        <controlForms:ControlDepartment x:Name="FormDepartment" Grid.Column="1" Height="109" Margin="227,0,10,35" VerticalAlignment="Bottom"/>
         <Button Content="Apply changes" Margin="0,0,209,10" HorizontalAlignment="Right" Width="94" Grid.Column="1" Height="20" VerticalAlignment="Bottom" Click="Department_Apply"/>
         <Button Content="Add new" Margin="352,0,109,10" Grid.Column="1" Height="20" VerticalAlignment="Bottom" Click="Department_New"/>
         <Button Content="Delete" Margin="0,0,10,10" HorizontalAlignment="Right" Width="94"  Grid.Column="1" Height="20" VerticalAlignment="Bottom" Click="Department_Delete"/>
