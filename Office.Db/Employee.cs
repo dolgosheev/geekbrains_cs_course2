@@ -9,7 +9,8 @@ namespace Office.Db
     {
         private int _id;
 
-        public const string ConnectionString = "Data Source=127.0.0.1;Initial Catalog=Office;User ID=alexander;Password=12345678";
+        //public const string ConnectionString = "Data Source=127.0.0.1;Initial Catalog=Office;User ID=alexander;Password=12345678";
+        public string ConnectionString = Config.ConnectionString;
 
         public int Id
         {

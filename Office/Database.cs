@@ -10,7 +10,8 @@ namespace Office
     {
         //private static readonly Random Rnd = new Random();
 
-        public const string ConnectionString = "Data Source=127.0.0.1;Initial Catalog=Office;User ID=alexander;Password=12345678";
+        //public const string ConnectionString = "Data Source=127.0.0.1;Initial Catalog=Office;User ID=alexander;Password=12345678";
+        public string ConnectionString = Config.ConnectionString;
 
         public ObservableCollection<Employee> Employees { get; set; }
         public ObservableCollection<Department> Departments { get; set; }
