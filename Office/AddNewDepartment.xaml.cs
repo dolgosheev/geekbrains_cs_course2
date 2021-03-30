@@ -22,6 +22,12 @@ namespace Office
 
         private void Create(object sender, RoutedEventArgs e)
         {
+            if (string.IsNullOrWhiteSpace(FormDepartment.Department.Title) || string.IsNullOrWhiteSpace(FormDepartment.Department.Description))
+            {
+                MessageBox.Show("Can't be empty", "error");
+                return;
+            }
+
             Department = FormDepartment.Department;
             DialogResult = true;
         }

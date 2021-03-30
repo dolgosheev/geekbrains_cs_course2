@@ -1,8 +1,10 @@
-﻿using Office.Db;
+﻿//using System;
+using Office.Db;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
+//using Office.ControlForms;
 
 namespace Office
 {
@@ -23,10 +25,9 @@ namespace Office
 
             Employees = _db.Employees;
             Departments = _db.Departments;
-
         }
 
-        #region Employee Control
+        #region Employee_Control
 
         private void ListViewOffice_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
@@ -38,7 +39,9 @@ namespace Office
                     ListViewDepartments.SelectedIndex = -1;
                 }
 
+                FormEmployee.Update = true;
                 FormEmployee.Employee = (Employee)SelectedEmployee.Clone();
+                
             }
 
             
@@ -49,7 +52,9 @@ namespace Office
             if (ListViewOffice.SelectedItems.Count < 1)
                 return;
 
-            Employees[Employees.IndexOf(SelectedEmployee)] = FormEmployee.Employee;
+            var empl = FormEmployee.Employee;
+            Employees[Employees.IndexOf(SelectedEmployee)] = empl;
+            _db.UpdateEmployeeInDatabase(empl);
             FormEmployee.Employee = null;
         }
 
@@ -58,7 +63,9 @@ namespace Office
             var newEmployee = new AddNew();
             if (newEmployee.ShowDialog() == true)
             {
-                _db.Employees.Add(newEmployee.Employee);
+                var empl = newEmployee.Employee;
+                _db.Employees.Add(empl);
+                _db.SaveEmployeeToDatabase(empl);
             }
         }
 
@@ -69,13 +76,16 @@ namespace Office
 
             if (MessageBox.Show("Are you sure?", "[Delete operation]", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
             {
-                _db.Employees.Remove((Employee)ListViewOffice.SelectedItems[0]);
+                var empl = (Employee) ListViewOffice.SelectedItems[0];
+                _db.Employees.Remove(empl);
+                _db.DeleteEmployeeFromDatabase(empl);
+                FormEmployee.Employee = null;
             }
         }
 
         #endregion
 
-        #region Department Control
+        #region Department_Control
 
         private void ListViewDepartments_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
@@ -102,6 +112,7 @@ namespace Office
             }
 
             Departments[Departments.IndexOf(SelectedDepartment)] = FormDepartment.Department;
+            _db.UpdateDepartmentInDatabase(FormDepartment.Department);
             FormDepartment.Department = null;
         }
 
@@ -110,7 +121,9 @@ namespace Office
             var newDepartment = new AddNewDepartment();
             if (newDepartment.ShowDialog() == true)
             {
-                _db.Departments.Add(newDepartment.Department);
+                var dpt = newDepartment.Department;
+                _db.Departments.Add(dpt);
+                _db.SaveDepartmentToDatabase(dpt);
             }
         }
 
@@ -127,7 +140,10 @@ namespace Office
                 var check2delete = _db.Employees.Where(r => r.Department == dprtmtTmp).Count();
 
                 if (check2delete == 0)
+                {
                     _db.Departments.Remove(dprtmtTmp);
+                    _db.DeleteDepartmentFromDatabase(dprtmtTmp);
+                }
                 else
                     MessageBox.Show("This department is used!", "Error");
 

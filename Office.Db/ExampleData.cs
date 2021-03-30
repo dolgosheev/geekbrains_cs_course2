@@ -11,10 +11,10 @@ namespace Office.Db
 
         public static ObservableCollection<Department> Departments = new ObservableCollection<Department>()
         {
-            new Department("IT","Internet tech"),
-            new Department("Support","Tech Support"),
-            new Department("Operator","Sales"),
-            new Department("Manager","Maintaners")
+            new Department(1,"IT","Internet tech"),
+            new Department(2,"Support","Tech Support"),
+            new Department(3,"Operator","Sales"),
+            new Department(4,"Manager","Maintaners")
         };
 
     }

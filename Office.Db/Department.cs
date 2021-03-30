@@ -1,11 +1,52 @@
 ﻿using System;
 using System.ComponentModel;
+using System.Data.SqlClient;
 using System.Runtime.CompilerServices;
 
 namespace Office.Db
 {
     public class Department : INotifyPropertyChanged, ICloneable
     {
+        private int _id;
+
+        //public const string ConnectionString = "Data Source=127.0.0.1;Initial Catalog=Office;User ID=alexander;Password=12345678";
+        public string ConnectionString = Config.ConnectionString;
+
+        private int GetCountDepartments()
+        {
+            using (var connection = new SqlConnection(ConnectionString))
+            {
+                connection.Open();
+
+                var sqlQuery = $@"SELECT MAX(Id) FROM Departments";
+
+                var command = new SqlCommand(sqlQuery, connection);
+
+                using (var sr = command.ExecuteReader())
+                {
+                    if (sr.HasRows)
+                    {
+                        while (sr.Read())
+                        {
+                            return sr.GetInt32(0) + 1;
+                        }
+                    }
+                }
+
+                return default;
+            }
+        }
+
+        public int Id
+        {
+            get => _id;
+            set
+            {
+                _id = value;
+                NotifyPropertyChanged();
+            }
+        }
+
         private string _title;
 
         public string Title
@@ -30,16 +71,18 @@ namespace Office.Db
             }
         }
 
-        public Department(string title, string description)
+        public Department(int id, string title, string description)
         {
+            _id = id;
             _title = title;
             _description = description;
         }
 
         public Department()
         {
-            _title = "[Title]";
-            _description = "[Description]";
+            _id = GetCountDepartments();
+            _title = default;
+            _description = default;
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
