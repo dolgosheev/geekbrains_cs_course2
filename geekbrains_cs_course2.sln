@@ -28,6 +28,13 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Office.Db", "Office.Db\Offi
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Office.ControlForms", "Office.ControlForms\Office.ControlForms.csproj", "{B803FB35-507F-4B8F-8952-4C1ECDFF4438}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Office.WebService", "Office.WebService\Office.WebService.csproj", "{C896062F-147F-4110-A315-57B92850A0D7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Office.Communication", "Office.Communication\Office.Communication.csproj", "{C5C6844D-1981-4AC2-8B30-801737A4D94C}"
+	ProjectSection(ProjectDependencies) = postProject
+		{C896062F-147F-4110-A315-57B92850A0D7} = {C896062F-147F-4110-A315-57B92850A0D7}
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -74,6 +81,14 @@ Global
 		{B803FB35-507F-4B8F-8952-4C1ECDFF4438}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B803FB35-507F-4B8F-8952-4C1ECDFF4438}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B803FB35-507F-4B8F-8952-4C1ECDFF4438}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C896062F-147F-4110-A315-57B92850A0D7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C896062F-147F-4110-A315-57B92850A0D7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C896062F-147F-4110-A315-57B92850A0D7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C896062F-147F-4110-A315-57B92850A0D7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C5C6844D-1981-4AC2-8B30-801737A4D94C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C5C6844D-1981-4AC2-8B30-801737A4D94C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C5C6844D-1981-4AC2-8B30-801737A4D94C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C5C6844D-1981-4AC2-8B30-801737A4D94C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

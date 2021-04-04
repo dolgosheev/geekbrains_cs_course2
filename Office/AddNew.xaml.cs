@@ -1,4 +1,4 @@
-﻿using Office.Db;
+﻿using Office.Communication.OfficeService;
 using System.Windows;
 
 namespace Office
