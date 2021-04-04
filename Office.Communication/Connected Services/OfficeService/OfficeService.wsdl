@@ -1,0 +1,428 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://localhost/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://localhost/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://localhost/">
+      <s:element name="LoadFromDepartmentsDatabase">
+        <s:complexType />
+      </s:element>
+      <s:element name="LoadFromDepartmentsDatabaseResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="LoadFromDepartmentsDatabaseResult" type="tns:ArrayOfDepartment" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfDepartment">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Department" nillable="true" type="tns:Department" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Department">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Id" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Title" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Description" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="MaxDepartment">
+        <s:complexType />
+      </s:element>
+      <s:element name="MaxDepartmentResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="MaxDepartmentResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateDepartmentInDatabase">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="department" type="tns:Department" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateDepartmentInDatabaseResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="SaveDepartmentToDatabase">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="department" type="tns:Department" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SaveDepartmentToDatabaseResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="DeleteDepartmentFromDatabase">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="department" type="tns:Department" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteDepartmentFromDatabaseResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="LoadFromEmployeesDatabase">
+        <s:complexType />
+      </s:element>
+      <s:element name="LoadFromEmployeesDatabaseResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="LoadFromEmployeesDatabaseResult" type="tns:ArrayOfEmployee" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfEmployee">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Employee" nillable="true" type="tns:Employee" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Employee">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Id" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Firstname" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Lastname" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Department" type="tns:Department" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="MaxEmployee">
+        <s:complexType />
+      </s:element>
+      <s:element name="MaxEmployeeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="MaxEmployeeResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateEmployeeInDatabase">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="employee" type="tns:Employee" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateEmployeeInDatabaseResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="SaveEmployeeToDatabase">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="employee" type="tns:Employee" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SaveEmployeeToDatabaseResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="DeleteEmployeeFromDatabase">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="employee" type="tns:Employee" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteEmployeeFromDatabaseResponse">
+        <s:complexType />
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="LoadFromDepartmentsDatabaseSoapIn">
+    <wsdl:part name="parameters" element="tns:LoadFromDepartmentsDatabase" />
+  </wsdl:message>
+  <wsdl:message name="LoadFromDepartmentsDatabaseSoapOut">
+    <wsdl:part name="parameters" element="tns:LoadFromDepartmentsDatabaseResponse" />
+  </wsdl:message>
+  <wsdl:message name="MaxDepartmentSoapIn">
+    <wsdl:part name="parameters" element="tns:MaxDepartment" />
+  </wsdl:message>
+  <wsdl:message name="MaxDepartmentSoapOut">
+    <wsdl:part name="parameters" element="tns:MaxDepartmentResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateDepartmentInDatabaseSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateDepartmentInDatabase" />
+  </wsdl:message>
+  <wsdl:message name="UpdateDepartmentInDatabaseSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateDepartmentInDatabaseResponse" />
+  </wsdl:message>
+  <wsdl:message name="SaveDepartmentToDatabaseSoapIn">
+    <wsdl:part name="parameters" element="tns:SaveDepartmentToDatabase" />
+  </wsdl:message>
+  <wsdl:message name="SaveDepartmentToDatabaseSoapOut">
+    <wsdl:part name="parameters" element="tns:SaveDepartmentToDatabaseResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeleteDepartmentFromDatabaseSoapIn">
+    <wsdl:part name="parameters" element="tns:DeleteDepartmentFromDatabase" />
+  </wsdl:message>
+  <wsdl:message name="DeleteDepartmentFromDatabaseSoapOut">
+    <wsdl:part name="parameters" element="tns:DeleteDepartmentFromDatabaseResponse" />
+  </wsdl:message>
+  <wsdl:message name="LoadFromEmployeesDatabaseSoapIn">
+    <wsdl:part name="parameters" element="tns:LoadFromEmployeesDatabase" />
+  </wsdl:message>
+  <wsdl:message name="LoadFromEmployeesDatabaseSoapOut">
+    <wsdl:part name="parameters" element="tns:LoadFromEmployeesDatabaseResponse" />
+  </wsdl:message>
+  <wsdl:message name="MaxEmployeeSoapIn">
+    <wsdl:part name="parameters" element="tns:MaxEmployee" />
+  </wsdl:message>
+  <wsdl:message name="MaxEmployeeSoapOut">
+    <wsdl:part name="parameters" element="tns:MaxEmployeeResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateEmployeeInDatabaseSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateEmployeeInDatabase" />
+  </wsdl:message>
+  <wsdl:message name="UpdateEmployeeInDatabaseSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateEmployeeInDatabaseResponse" />
+  </wsdl:message>
+  <wsdl:message name="SaveEmployeeToDatabaseSoapIn">
+    <wsdl:part name="parameters" element="tns:SaveEmployeeToDatabase" />
+  </wsdl:message>
+  <wsdl:message name="SaveEmployeeToDatabaseSoapOut">
+    <wsdl:part name="parameters" element="tns:SaveEmployeeToDatabaseResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeleteEmployeeFromDatabaseSoapIn">
+    <wsdl:part name="parameters" element="tns:DeleteEmployeeFromDatabase" />
+  </wsdl:message>
+  <wsdl:message name="DeleteEmployeeFromDatabaseSoapOut">
+    <wsdl:part name="parameters" element="tns:DeleteEmployeeFromDatabaseResponse" />
+  </wsdl:message>
+  <wsdl:portType name="OfficeServiceSoap">
+    <wsdl:operation name="LoadFromDepartmentsDatabase">
+      <wsdl:input message="tns:LoadFromDepartmentsDatabaseSoapIn" />
+      <wsdl:output message="tns:LoadFromDepartmentsDatabaseSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="MaxDepartment">
+      <wsdl:input message="tns:MaxDepartmentSoapIn" />
+      <wsdl:output message="tns:MaxDepartmentSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateDepartmentInDatabase">
+      <wsdl:input message="tns:UpdateDepartmentInDatabaseSoapIn" />
+      <wsdl:output message="tns:UpdateDepartmentInDatabaseSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveDepartmentToDatabase">
+      <wsdl:input message="tns:SaveDepartmentToDatabaseSoapIn" />
+      <wsdl:output message="tns:SaveDepartmentToDatabaseSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteDepartmentFromDatabase">
+      <wsdl:input message="tns:DeleteDepartmentFromDatabaseSoapIn" />
+      <wsdl:output message="tns:DeleteDepartmentFromDatabaseSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="LoadFromEmployeesDatabase">
+      <wsdl:input message="tns:LoadFromEmployeesDatabaseSoapIn" />
+      <wsdl:output message="tns:LoadFromEmployeesDatabaseSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="MaxEmployee">
+      <wsdl:input message="tns:MaxEmployeeSoapIn" />
+      <wsdl:output message="tns:MaxEmployeeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateEmployeeInDatabase">
+      <wsdl:input message="tns:UpdateEmployeeInDatabaseSoapIn" />
+      <wsdl:output message="tns:UpdateEmployeeInDatabaseSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveEmployeeToDatabase">
+      <wsdl:input message="tns:SaveEmployeeToDatabaseSoapIn" />
+      <wsdl:output message="tns:SaveEmployeeToDatabaseSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteEmployeeFromDatabase">
+      <wsdl:input message="tns:DeleteEmployeeFromDatabaseSoapIn" />
+      <wsdl:output message="tns:DeleteEmployeeFromDatabaseSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="OfficeServiceSoap" type="tns:OfficeServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="LoadFromDepartmentsDatabase">
+      <soap:operation soapAction="http://localhost/LoadFromDepartmentsDatabase" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MaxDepartment">
+      <soap:operation soapAction="http://localhost/MaxDepartment" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateDepartmentInDatabase">
+      <soap:operation soapAction="http://localhost/UpdateDepartmentInDatabase" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveDepartmentToDatabase">
+      <soap:operation soapAction="http://localhost/SaveDepartmentToDatabase" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteDepartmentFromDatabase">
+      <soap:operation soapAction="http://localhost/DeleteDepartmentFromDatabase" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoadFromEmployeesDatabase">
+      <soap:operation soapAction="http://localhost/LoadFromEmployeesDatabase" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MaxEmployee">
+      <soap:operation soapAction="http://localhost/MaxEmployee" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateEmployeeInDatabase">
+      <soap:operation soapAction="http://localhost/UpdateEmployeeInDatabase" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveEmployeeToDatabase">
+      <soap:operation soapAction="http://localhost/SaveEmployeeToDatabase" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteEmployeeFromDatabase">
+      <soap:operation soapAction="http://localhost/DeleteEmployeeFromDatabase" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="OfficeServiceSoap12" type="tns:OfficeServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="LoadFromDepartmentsDatabase">
+      <soap12:operation soapAction="http://localhost/LoadFromDepartmentsDatabase" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MaxDepartment">
+      <soap12:operation soapAction="http://localhost/MaxDepartment" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateDepartmentInDatabase">
+      <soap12:operation soapAction="http://localhost/UpdateDepartmentInDatabase" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveDepartmentToDatabase">
+      <soap12:operation soapAction="http://localhost/SaveDepartmentToDatabase" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteDepartmentFromDatabase">
+      <soap12:operation soapAction="http://localhost/DeleteDepartmentFromDatabase" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoadFromEmployeesDatabase">
+      <soap12:operation soapAction="http://localhost/LoadFromEmployeesDatabase" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MaxEmployee">
+      <soap12:operation soapAction="http://localhost/MaxEmployee" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateEmployeeInDatabase">
+      <soap12:operation soapAction="http://localhost/UpdateEmployeeInDatabase" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveEmployeeToDatabase">
+      <soap12:operation soapAction="http://localhost/SaveEmployeeToDatabase" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteEmployeeFromDatabase">
+      <soap12:operation soapAction="http://localhost/DeleteEmployeeFromDatabase" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="OfficeService">
+    <wsdl:port name="OfficeServiceSoap" binding="tns:OfficeServiceSoap">
+      <soap:address location="https://localhost:44324/OfficeService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="OfficeServiceSoap12" binding="tns:OfficeServiceSoap12">
+      <soap12:address location="https://localhost:44324/OfficeService.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

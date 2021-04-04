@@ -2,6 +2,7 @@
 using System.ComponentModel;
 using System.Data.SqlClient;
 using System.Runtime.CompilerServices;
+using System.Xml.Serialization;
 
 namespace Office.Db
 {
@@ -9,8 +10,8 @@ namespace Office.Db
     {
         private int _id;
 
-        //public const string ConnectionString = "Data Source=127.0.0.1;Initial Catalog=Office;User ID=alexander;Password=12345678";
-        public string ConnectionString = Config.ConnectionString;
+        [XmlIgnore]
+        private string ConnectionString = Config.ConnectionString;
 
         public int Id
         {
@@ -58,16 +59,7 @@ namespace Office.Db
             }
         }
 
-
-        public Employee(int id, string firstname, string lastname, Department department)
-        {
-            _id = id;
-            _firstname = firstname;
-            _lastname = lastname;
-            _department = department;
-        }
-
-        private int GetCountEmployees()
+        public int GetCountEmployees()
         {
             using (var connection = new SqlConnection(ConnectionString))
             {

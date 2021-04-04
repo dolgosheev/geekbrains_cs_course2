@@ -1,9 +1,8 @@
-﻿//using System;
+﻿using Office.Communication.OfficeService;
 using Office.ControlForms.Annotations;
-using Office.Db;
+using System;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
-using System.Data.SqlClient;
 using System.Runtime.CompilerServices;
 
 namespace Office.ControlForms
@@ -12,8 +11,7 @@ namespace Office.ControlForms
     {
         private Employee _employee;
 
-        //public const string ConnectionString = "Data Source=127.0.0.1;Initial Catalog=Office;User ID=alexander;Password=12345678";
-        public string ConnectionString = Config.ConnectionString;
+        private readonly OfficeServiceSoapClient _officeServiceSoapClient = new OfficeServiceSoapClient();
 
         private bool UpdFlag { get; set; }
         public bool Update
@@ -31,32 +29,10 @@ namespace Office.ControlForms
 
         private void LoadFromDepartmentsDatabase()
         {
-            using (var connection = new SqlConnection(ConnectionString))
-            {
-                connection.Open();
-
-                var sqlQuery = $@"SELECT * FROM Departments";
-
-                var command = new SqlCommand(sqlQuery, connection);
-
-                using (var sr = command.ExecuteReader())
-                {
-                    if (sr.HasRows)
-                    {
-                        while (sr.Read())
-                        {
-                            var dpt = new Department
-                            {
-                                Id = sr.GetInt32(0),
-                                Title = sr.GetString(1),
-                                Description = sr.GetString(2)
-                            };
-                            Departments.Add(dpt);
-                        }
-                    }
-                }
-
-            }
+            Array.ForEach(
+                _officeServiceSoapClient.LoadFromDepartmentsDatabase(),
+                r => Departments.Add(r)
+            );
         }
 
         public Employee Employee

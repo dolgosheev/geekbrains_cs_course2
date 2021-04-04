@@ -2,6 +2,7 @@
 using System.ComponentModel;
 using System.Data.SqlClient;
 using System.Runtime.CompilerServices;
+using System.Xml.Serialization;
 
 namespace Office.Db
 {
@@ -9,12 +10,12 @@ namespace Office.Db
     {
         private int _id;
 
-        //public const string ConnectionString = "Data Source=127.0.0.1;Initial Catalog=Office;User ID=alexander;Password=12345678";
-        public string ConnectionString = Config.ConnectionString;
+        [XmlIgnore]
+        private readonly string _connectionString = Config.ConnectionString;
 
         private int GetCountDepartments()
         {
-            using (var connection = new SqlConnection(ConnectionString))
+            using (var connection = new SqlConnection(_connectionString))
             {
                 connection.Open();
 

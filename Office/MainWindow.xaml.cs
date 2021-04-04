@@ -1,10 +1,8 @@
-﻿//using System;
-using Office.Db;
-using System.Collections.ObjectModel;
+﻿using System.Collections.ObjectModel;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
-//using Office.ControlForms;
+using Office.Communication.OfficeService;
 
 namespace Office
 {
